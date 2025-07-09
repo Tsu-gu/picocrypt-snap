@@ -1,0 +1,71 @@
+name: picocrypt
+base: core24
+version: '1.48'
+summary: A very small, very simple, yet very secure encryption tool.
+description: |
+  Picocrypt is a very small (hence Pico), very simple, yet very secure encryption tool that you can use to protect your files. 
+  It's designed to be the go-to tool for encryption, with a focus on security, simplicity, and reliability. 
+  Picocrypt uses the secure XChaCha20 cipher and the Argon2id key derivation function to provide a high level of security, even from three-letter agencies like the NSA. 
+  Your privacy and security is under attack. Take it back with confidence by protecting your files with Picocrypt.
+
+grade: stable
+confinement: strict
+
+parts:
+  picocrypt:
+    source: .
+    plugin: dump
+    override-build: |
+      mkdir -p "$SNAPCRAFT_PART_INSTALL/usr/bin"
+      URL="https://github.com/Picocrypt/Picocrypt/releases/download/${SNAPCRAFT_PROJECT_VERSION}/Picocrypt"
+      wget -q -O "$SNAPCRAFT_PART_INSTALL/usr/bin/picocrypt" "$URL"
+      chmod +x "$SNAPCRAFT_PART_INSTALL/usr/bin/picocrypt"
+      craftctl default
+    build-packages:
+      - wget
+    stage-packages:
+      - libc6 
+      - libgcc-s1 
+      - libgl1 
+      - libgtk-3-0 
+      - libstdc++6 
+      - libx11-6
+      - libproxy1v5
+      - libproxy1-plugin-gsettings
+
+  cli:
+    source: .
+    plugin: dump
+    override-build: |
+      mkdir -p "$SNAPCRAFT_PART_INSTALL/usr/bin"
+      URL="https://github.com/Picocrypt/CLI/releases/download/${SNAPCRAFT_PROJECT_VERSION}/picocrypt-linux-amd64"
+      wget -q -O "$SNAPCRAFT_PART_INSTALL/usr/bin/cli" "$URL"
+      chmod +x "$SNAPCRAFT_PART_INSTALL/usr/bin/cli"
+      craftctl default
+    build-packages:
+      - wget
+    stage-packages:
+      - libc6 
+      - libgcc-s1 
+      - libgl1 
+      - libgtk-3-0 
+      - libstdc++6 
+      - libx11-6
+
+apps:
+  picocrypt:
+    command: usr/bin/picocrypt
+    extensions: [gnome]
+    environment:
+      LD_LIBRARY_PATH: $LD_LIBRARY_PATH:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/libproxy   
+    plugs:
+      - home
+      - removable-media
+      - wayland
+      - x11
+
+  cli:
+    command: usr/bin/cli
+    plugs:
+      - home
+      - removable-media    
