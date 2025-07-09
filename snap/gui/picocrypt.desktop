@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Picocrypt
+Exec=picocrypt
+Icon=${SNAP}/meta/gui/picocrypt.svg
+Comment=Tiny encryption tool
+Terminal=false
+Type=Application
+MimeType=x-content/unix-software;
