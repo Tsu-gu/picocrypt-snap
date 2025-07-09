@@ -1,6 +1,8 @@
 
 Contains both the desktop and CLI versions. You can use the CLi by picocrypt.cli
 
+[![Get it from the Snap Store](https://snapcraft.io/en/dark/install.svg)](https://snapcraft.io/picocrypt-tsugu)
+
 ![IMG-20250709-100742](https://i.postimg.cc/WzKT88JN/IMG-20250709-100742.jpg)
 ![IMG-20250709-100840](https://i.postimg.cc/fTGM0HN5/IMG-20250709-100840.jpg)
 
