@@ -1,6 +1,6 @@
 name: picocrypt-tsugu
 base: core24
-version: '1.48'
+version: '1.49'
 summary: A very small, very simple, yet very secure encryption tool.
 description: |
   Picocrypt is a very small (hence Pico), very simple, yet very secure encryption tool that you can use to protect your files. 
