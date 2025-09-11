@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Picocrypt
 Exec=picocrypt-tsugu
-Icon=${SNAP}/meta/gui/picocrypt.svg
+Icon=${SNAP}/meta/gui/picocrypt-tsugu.svg
 Comment=Tiny encryption tool
 Terminal=false
 Type=Application
